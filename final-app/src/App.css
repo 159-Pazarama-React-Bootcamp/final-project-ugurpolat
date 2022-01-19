@@ -1,0 +1,143 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* signup-page */
+
+#signup-page {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: scroll;
+}
+
+.signup-form {
+  flex: 1;
+  max-width: 600px;
+  border-radius: 10px;
+  border: 1px solid #999;
+  padding: 5px 10px;
+}
+
+.signup-form_row {
+  display: flex;
+  flex-direction: row;
+}
+
+.signup-form_group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin: 10px 5px;
+}
+
+label {
+  color: #1bba93;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.signup-form_field {
+  font-size: 18px;
+  height: 34px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #666;
+  border: 1px solid #d6d6d6;
+  border-radius: 4px;
+  background: white;
+  outline: none;
+}
+
+.button {
+  width: 20%;
+  margin: 0 auto;
+}
+
+.navigation {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 5rem;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 2px solid black;
+}
+
+.navigation_nav {
+  width: 100%;
+}
+
+.navigation_list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.navigation_item {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #f037a5;
+}
+
+.navigation_svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.navigation_item_title {
+  margin-top: 0;
+  color: #323edd;
+  font-weight: 700;
+}
+
+@media only screen and (max-width: 500px) {
+  .signup-form_row {
+    flex-direction: column;
+  }
+}
