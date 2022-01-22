@@ -48,10 +48,9 @@ export default function BasvuruOlustur() {
   });
   return (
     <div>
-      <h1>Başvuru Oluştur</h1>
-
-      <section id="signup-page">
+      <section className="page">
         <form onSubmit={handleSubmit} className="signup-form">
+          <h2>Sign Up</h2>
           <div className="signup-form_row">
             <div className="signup-form_group">
               <label htmlFor="name">Name:</label>
@@ -110,6 +109,7 @@ export default function BasvuruOlustur() {
             <div className="signup-form_group">
               <label htmlFor="reasonOfApp">Reason of Application:</label>
               <input
+                className="signup-form_field"
                 onChange={handleChange}
                 name="reasonOfApp"
                 placeholder="Job applications"

@@ -39,12 +39,11 @@
 
 /* signup-page */
 
-#signup-page {
+.page {
   height: 100%;
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  overflow: scroll;
 }
 
 .signup-form {
@@ -53,6 +52,7 @@
   border-radius: 10px;
   border: 1px solid #999;
   padding: 5px 10px;
+  background-color: rgb(255, 255, 255);
 }
 
 .signup-form_row {
@@ -69,9 +69,10 @@
 }
 
 label {
+  font-family: "Rubik", sans-serif;
   color: #000000;
-  font-size: 17px;
-  font-weight: 500;
+  font-size: 1.2rem;
+  font-weight: 400;
 }
 
 .signup-form_field {
@@ -87,8 +88,21 @@ label {
 }
 
 .button {
-  width: 20%;
+  padding: 1.25rem 3rem;
+  text-transform: uppercase;
+  border-radius: 5rem;
+  background-color: rgb(218, 216, 216);
+  color: black;
+  border: none;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  position: relative;
   margin: 0 auto;
+  font-family: "Rubik", sans-serif;
+  font-weight: 700;
+  line-height: 1;
+  display: block;
 }
 
 .navigation {
@@ -156,10 +170,6 @@ label {
   list-style-type: none;
 }
 
-.button {
-  display: block;
-  width: 100%;
-}
 @media only screen and (max-width: 500px) {
   .signup-form_row {
     flex-direction: column;

@@ -23,6 +23,13 @@ export default function Basvuru() {
     <div>
       <h3>{id} sayılı başvuru</h3>
       <h4>Name: {newUser.id} </h4>
+      <h4>Surname: {newUser.surname}</h4>
+      <h4>Age: {newUser.age}</h4>
+      <h4>TC: {newUser.age}</h4>
+      <h4>Address: {newUser.address}</h4>
+      <h4>Reason Of Application: {newUser.reasonOfApp}</h4>
+      <h4>Application Date : {newUser.applicationDate}</h4>
+      <h4>Application Status: {newUser.applicationStatus}</h4>
       {}
     </div>
   );

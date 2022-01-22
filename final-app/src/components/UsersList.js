@@ -7,7 +7,7 @@ export default function UsersList() {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <section className="page">
       <div className="aplication-list">
         <div className="aplication-list__user">
           <h4>Başvuruda Bulunanlar</h4>
@@ -31,7 +31,6 @@ export default function UsersList() {
             {users.map((user) => (
               <button
                 onClick={() => navigate(`/admin/basvuru/${user.id}`)}
-                className="button"
                 key={user.id}
               >
                 Görüntüle
@@ -40,6 +39,6 @@ export default function UsersList() {
           </ul>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

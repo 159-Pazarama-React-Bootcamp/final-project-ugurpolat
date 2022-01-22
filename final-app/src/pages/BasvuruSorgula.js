@@ -23,7 +23,7 @@ export default function BasvuruSorgula() {
   return (
     <div>
       <h2>Başvuru Sorgula</h2>
-      <section>
+      <section className="page">
         <form onSubmit={handleSubmit}>
           <div className="signup-form_row">
             <div className="signup-form_group">
@@ -38,7 +38,7 @@ export default function BasvuruSorgula() {
             </div>
           </div>
           <div className="signup-form_group">
-            <button name="button" type="submit">
+            <button className="button" name="button" type="submit">
               Submit
             </button>
           </div>

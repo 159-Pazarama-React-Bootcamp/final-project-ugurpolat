@@ -17,7 +17,10 @@ function App() {
   return (
     <UserProvider>
       <div className="App">
-        <h1>Ticket App</h1>
+        <header>
+          <h1>Ticket App</h1>
+        </header>
+
         <Router>
           <Routes>
             <Route
