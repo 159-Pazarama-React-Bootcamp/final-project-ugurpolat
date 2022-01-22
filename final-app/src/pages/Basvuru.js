@@ -1,11 +1,11 @@
-import React, { useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import UserContext from "../context/UserContext";
 
 export default function Basvuru() {
   let userId;
-  let userSearch = [{}];
-
+  let userSearch = {};
+  const [newUser, setUser] = useState({});
   const { id } = useParams();
   const { getApplication, getUser } = useContext(UserContext);
 
@@ -14,15 +14,15 @@ export default function Basvuru() {
 
     userId &&
       getUser(userId).then((user) => {
-        userSearch = user;
-        console.log(userSearch.name);
+        // userSearch = user;
+        setUser(user);
       });
   });
 
   return (
     <div>
       <h3>{id} sayılı başvuru</h3>
-      <h4>Name:{userSearch.name}</h4>
+      <h4>Name: {newUser.id} </h4>
       {}
     </div>
   );
