@@ -21,7 +21,42 @@ export const UserProvider = ({ children }) => {
     // setIsLoading(false);
   };
 
+  //get user applicationNumber
+  const getApplication = async (aplicatioNumber) => {
+    const response = await fetch(
+      `https://61e2ed2c3050a10017682308.mockapi.io/api/users?applicationNumber=${aplicatioNumber}`
+    );
+    const searchData = await response.json();
+    return searchData;
+  };
+
+  //get user
+  const getUser = async (userId) => {
+    const response = await fetch(
+      `https://61e2ed2c3050a10017682308.mockapi.io/api/users/${userId}`
+    );
+    const searchData = await response.json();
+    return searchData;
+  };
+
   // Add user
+  const addUser = async (newUser) => {
+    const response = await fetch(
+      "https://61e2ed2c3050a10017682308.mockapi.io/api/users",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newUser),
+      }
+    );
+
+    const data = await response.json();
+
+    // newTodo.id = uuidv4();
+    setUsers([data, ...users]);
+  };
 
   // update user
   const updateUser = async (id, updUser) => {
@@ -47,7 +82,10 @@ export const UserProvider = ({ children }) => {
     <UserContext.Provider
       value={{
         users,
+        addUser,
         updateUser,
+        getApplication,
+        getUser,
       }}
     >
       {children}
@@ -56,28 +94,3 @@ export const UserProvider = ({ children }) => {
 };
 
 export default UserContext;
-
-{
-  /* <h4>Kullanıcı Bilgisi : {id}</h4>
-      <h3>Ad:{users[id - 1].name}</h3>
-
-      <h3>Soyad:{users[id - 1].surname}</h3>
-      <h3>Age:{users[id - 1].age}</h3>
-      <h3>Adress:{users[id - 1].address}</h3>
-      <h3>Reason of Application:{users[id - 1].reasonOfApp}</h3>
-      <h3>Application Status:{users[id - 1].applicationStatus}</h3>
-      <h3>Application Date:{users[id - 1].applicationDate}</h3>
-      <h3>Application Number:{users[id - 1].applicationNumber}</h3>
-      <h3>Attach File:{users[id - 1].attach}</h3> */
-}
-{
-  /* <button onClick={handleUpdate} className="button">
-        Güncelle
-      </button>
-      <button
-        className="button"
-        onClick={() => navigate("/admin/basvuru-listesi")}
-      >
-        Kapat
-      </button> */
-}

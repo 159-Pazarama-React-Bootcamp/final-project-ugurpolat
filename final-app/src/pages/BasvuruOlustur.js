@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
+import UserContext from "../context/UserContext";
 import { useFormik } from "formik";
+import { useNavigate } from "react-router-dom";
 
 export default function BasvuruOlustur() {
+  const { addUser } = useContext(UserContext);
+  const navigate = useNavigate();
+  const randomNumber = (minNumber, maxNumber) => {
+    let rndNum = Math.floor(
+      Math.random() * (maxNumber - minNumber + 1) + minNumber
+    );
+    return rndNum;
+  };
+
+  const d = new Date();
+  let dateSave = d.toLocaleDateString();
+
   const { handleSubmit, handleChange, values } = useFormik({
     initialValues: {
       name: "",
@@ -15,31 +29,46 @@ export default function BasvuruOlustur() {
       address: "",
       // attach: "",
     },
-    onSubmit: (values) => {},
+    onSubmit: (values) => {
+      const newUser = {
+        name: values.name,
+        surname: values.surname,
+        age: values.age,
+        tc: values.tc,
+        reasonOfApp: values.reasonOfApp,
+        aplicationStatus: "Bekliyor",
+        applicationNumber: randomNumber(Math.pow(10, 5), Math.pow(10, 8)),
+        applicationDate: dateSave,
+        address: values.address,
+        // attach: values.attach,
+      };
+      addUser(newUser);
+      navigate("/basvuru-basarılı");
+    },
   });
   return (
     <div>
       <h1>Başvuru Oluştur</h1>
 
       <section id="signup-page">
-        <form className="signup-form">
+        <form onSubmit={handleSubmit} className="signup-form">
           <div className="signup-form_row">
             <div className="signup-form_group">
               <label htmlFor="name">Name:</label>
               <input
+                onChange={handleChange}
                 className="signup-form_field"
-                id="name"
                 name="name"
-                placeholder="Ugur"
+                value={values.name}
               />
             </div>
             <div className="signup-form_group">
               <label htmlFor="surname">Surname:</label>
               <input
+                onChange={handleChange}
                 className="signup-form_field"
-                id="surname"
                 name="surname"
-                placeholder="Polat"
+                value={values.surname}
               />
             </div>
           </div>
@@ -48,10 +77,10 @@ export default function BasvuruOlustur() {
             <div className="signup-form_group">
               <label htmlFor="address">Address:</label>
               <input
+                onChange={handleChange}
                 className="signup-form_field"
-                id="address"
                 name="address"
-                placeholder="12. Kennedy Square 17NG Trade Tower New York/USA"
+                value={values.adress}
               />
             </div>
           </div>
@@ -60,19 +89,19 @@ export default function BasvuruOlustur() {
             <div className="signup-form_group">
               <label htmlFor="age">Age:</label>
               <input
+                onChange={handleChange}
                 className="signup-form_field"
-                id="age"
                 name="age"
-                placeholder="21"
+                value={values.age}
               />
             </div>
             <div className="signup-form_group">
               <label htmlFor="tc">TC:</label>
               <input
+                onChange={handleChange}
                 className="signup-form_field"
-                id="tc"
                 name="tc"
-                placeholder="98745632906"
+                value={values.tc}
               />
             </div>
           </div>
@@ -81,10 +110,10 @@ export default function BasvuruOlustur() {
             <div className="signup-form_group">
               <label htmlFor="reasonOfApp">Reason of Application:</label>
               <input
-                className="signup-form_field"
-                id="reasonOfApp"
+                onChange={handleChange}
                 name="reasonOfApp"
                 placeholder="Job applications"
+                value={values.reasonOfApp}
               />
             </div>
 

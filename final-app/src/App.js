@@ -10,6 +10,7 @@ import Basvuru from "./pages/Basvuru";
 import Admin from "./pages/Admin";
 import AdminBasvuru from "./pages/AdminBasvuru";
 import AdminBasvuruList from "./pages/AdminBasvuruList";
+import Page404 from "./pages/Page404";
 import Navbar from "./components/Navbar";
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
               path="/admin/basvuru/:id"
               element={<AdminBasvuru></AdminBasvuru>}
             ></Route>
+            <Route path="/basvuru/404" element={<Page404></Page404>}></Route>
           </Routes>
           <Navbar></Navbar>
         </Router>
