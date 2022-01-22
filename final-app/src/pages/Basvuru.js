@@ -3,7 +3,7 @@ import React from "react";
 export default function Basvuru() {
   return (
     <div>
-      <p>Başvuru ---</p>
+      <p>Başvuru</p>
     </div>
   );
 }
