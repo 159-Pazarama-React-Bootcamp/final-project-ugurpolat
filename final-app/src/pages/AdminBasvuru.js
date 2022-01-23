@@ -1,7 +1,7 @@
-import React, { useContext, useState } from "react";
-import UserContext from "../context/UserContext";
+import React, { useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
+import UserContext from "../context/UserContext";
 
 export default function AdminBasvuru() {
   const navigate = useNavigate();
@@ -15,11 +15,11 @@ export default function AdminBasvuru() {
       age: `${users[id - 1].age}`,
       tc: `${users[id - 1].tc}`,
       reasonOfApp: `${users[id - 1].reasonOfApp}`,
-      aplicationStatus: `${users[id - 1].aplicationStatus}`,
+      applicationStatus: `${users[id - 1].applicationStatus}`,
       applicationNumber: `${users[id - 1].applicationNumber}`,
       applicationDate: `${users[id - 1].applicationDate}`,
       address: `${users[id - 1].address}`,
-      attach: `${users[id - 1].attach}`,
+      attach: `${users[id - 1].attach}`
     },
 
     onSubmit: (values) => {
@@ -29,20 +29,20 @@ export default function AdminBasvuru() {
         age: values.age,
         tc: values.tc,
         reasonOfApp: values.reasonOfApp,
-        aplicationStatus: values.aplicationStatus,
+        applicationStatus: values.aplicationStatus,
         applicationNumber: values.applicationNumber,
         applicationDate: values.applicationDate,
         address: values.address,
-        attach: values.attach,
+        attach: values.attach
       };
       updateUser(id, updUser);
-    },
+    }
   });
 
   return (
-    <div>
-      <h3>Kullanıcı Bilgisi: {id}</h3>
+    <section className="page">
       <form onSubmit={handleSubmit} className="signup-form">
+        <h3>Kullanıcı Bilgisi: {id}</h3>
         <div className="signup-form_row">
           <div className="signup-form_group">
             <label htmlFor="name">Name:</label>
@@ -50,22 +50,14 @@ export default function AdminBasvuru() {
           </div>
           <div className="signup-form_group">
             <label htmlFor="surname">Surname:</label>
-            <input
-              name="surname"
-              value={values.surname}
-              onChange={handleChange}
-            />
+            <input name="surname" value={values.surname} onChange={handleChange} />
           </div>
         </div>
 
         <div className="signup-form_row">
           <div className="signup-form_group">
             <label htmlFor="address">Address:</label>
-            <input
-              name="address"
-              value={values.address}
-              onChange={handleChange}
-            />
+            <input name="address" value={values.address} onChange={handleChange} />
           </div>
         </div>
 
@@ -83,21 +75,12 @@ export default function AdminBasvuru() {
         <div className="signup-form_row">
           <div className="signup-form_group">
             <label htmlFor="reasonOfApp">Reason of Application:</label>
-            <input
-              name="reasonOfApp"
-              value={values.reasonOfApp}
-              onChange={handleChange}
-            />
+            <input name="reasonOfApp" value={values.reasonOfApp} onChange={handleChange} />
           </div>
 
           <div className="signup-form_group">
             <label htmlFor="attach">File:</label>
-            <input
-              name="attach"
-              onChange={handleChange}
-              value={values.attach}
-              text="file"
-            />
+            <input name="attach" onChange={handleChange} value={values.attach} text="file" />
           </div>
         </div>
 
@@ -115,11 +98,7 @@ export default function AdminBasvuru() {
         <div className="signup-form_row">
           <div className="signup-form_group">
             <label htmlFor="reasonOfApp">Application Date:</label>
-            <input
-              name="applicationDate"
-              value={values.applicationDate}
-              onChange={handleChange}
-            />
+            <input name="applicationDate" value={values.applicationDate} onChange={handleChange} />
           </div>
         </div>
 
@@ -127,12 +106,11 @@ export default function AdminBasvuru() {
           <div className="signup-form_group">
             {/* <label htmlFor="aplicationStatus">Application Status:</label>
                 <input name="aplicationStatus" onChange={handleChange} /> */}
-            <label htmlFor="aplicationStatus">Choose a status</label>
+            <label htmlFor="applicationStatus">Choose a status</label>
             <select
               name="aplicationStatus"
-              value={values.aplicationStatus}
-              onChange={handleChange}
-            >
+              value={values.applicationStatus}
+              onChange={handleChange}>
               <option value="çözüldü">Çözüldü</option>
               <option value="iptaledildi">İptal Edildi</option>
               <option value="bekliyor">Bekliyor</option>
@@ -141,18 +119,17 @@ export default function AdminBasvuru() {
         </div>
 
         <div className="signup-form_group">
-          <button className="button" type="submit">
-            Güncelle
-          </button>
-          <button className="button">Kullanıcıyı Sil</button>
-          <button
-            onClick={() => navigate("/admin/basvuru-listesi")}
-            className="button"
-          >
-            Çıkış yap
-          </button>
+          <div className="signup-form_group__button-box">
+            <button className="button" type="submit">
+              Update
+            </button>
+            <button className="button">Delete User</button>
+            <button onClick={() => navigate("/admin/basvuru-listesi")} className="button">
+              User List
+            </button>
+          </div>
         </div>
       </form>
-    </div>
+    </section>
   );
 }

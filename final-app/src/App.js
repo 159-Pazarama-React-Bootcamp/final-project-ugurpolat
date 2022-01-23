@@ -23,32 +23,16 @@ function App() {
 
         <Router>
           <Routes>
-            <Route
-              exact
-              path="/"
-              element={<BasvuruOlustur></BasvuruOlustur>}
-            ></Route>
-            <Route
-              path="/basvuru-basarılı"
-              element={<BasvuruBasarili></BasvuruBasarili>}
-            ></Route>
-            <Route
-              path="/basvuru-sorgula"
-              element={<BasvuruSorgula></BasvuruSorgula>}
-            ></Route>
-            <Route path="/basvuru/:id" element={<Basvuru></Basvuru>}></Route>
-            <Route path="/admin" element={<Admin></Admin>}></Route>
-            <Route
-              path="/admin/basvuru-listesi"
-              element={<AdminBasvuruList></AdminBasvuruList>}
-            ></Route>
-            <Route
-              path="/admin/basvuru/:id"
-              element={<AdminBasvuru></AdminBasvuru>}
-            ></Route>
-            <Route path="/basvuru/404" element={<Page404></Page404>}></Route>
+            <Route exact path="/" element={<BasvuruOlustur />} />
+            <Route path="/basvuru-basarili" element={<BasvuruBasarili />} />
+            <Route path="/basvuru-sorgula" element={<BasvuruSorgula />} />
+            <Route path="/basvuru/:id" element={<Basvuru />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/admin/basvuru-listesi" element={<AdminBasvuruList />} />
+            <Route path="/admin/basvuru/:id" element={<AdminBasvuru />} />
+            <Route path="/basvuru/404" element={<Page404 />} />
           </Routes>
-          <Navbar></Navbar>
+          <Navbar />
         </Router>
       </div>
     </UserProvider>

@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export default function BasvuruBasarili() {
+  const data = JSON.parse(localStorage.getItem("applicationNumber"));
+
+  const [number, setNumber] = useState();
+  useEffect(() => {
+    setNumber(data);
+  }, [number]);
   return (
-    <div>
-      <h1>Başvuru Başarılı</h1>
-    </div>
+    <section className="user-page">
+      <div className="user-page__user">
+        <h2>Başvuru Başarılı</h2>
+        <p>Application number : {number}</p>
+      </div>
+    </section>
   );
 }

@@ -3,8 +3,7 @@ import UsersList from "../components/UsersList";
 
 export default function AdminBasvuruList() {
   return (
-    <section>
-      Başvuru Listesi
+    <section className="admin-basvuru">
       <UsersList></UsersList>
     </section>
   );

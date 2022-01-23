@@ -7,37 +7,41 @@ export default function UsersList() {
   const navigate = useNavigate();
 
   return (
-    <section className="page">
-      <div className="aplication-list">
-        <div className="aplication-list__user">
-          <h4>Başvuruda Bulunanlar</h4>
-          <ul className="aplication-list__items">
-            {users.map((user) => (
-              <li key={user.id}>{user.name}</li>
-            ))}
-          </ul>
+    <section className="admin-page">
+      <div className="application-list__box">
+        <div>
+          <h4>Users</h4>
         </div>
-        <div className="aplication-list__date">
-          <h4>Başvuru Zamanı</h4>
-          <ul className="aplication-list__items">
-            {users.map((user) => (
-              <li key={user.id}>{user.applicationDate}</li>
-            ))}
-          </ul>
+
+        <ul className="application-list__items">
+          {users.map((user) => (
+            <li key={user.id}>{user.name}</li>
+          ))}
+        </ul>
+      </div>
+      <div className="application-list__box">
+        <div>
+          <h4>Date</h4>
         </div>
-        <div className="aplication-list__info">
-          <h4>Ayrıntı</h4>
-          <ul className="aplication-list__items">
-            {users.map((user) => (
-              <button
-                onClick={() => navigate(`/admin/basvuru/${user.id}`)}
-                key={user.id}
-              >
-                Görüntüle
-              </button>
-            ))}
-          </ul>
+
+        <ul className="application-list__items">
+          {users.map((user) => (
+            <li key={user.id}>{user.applicationDate}</li>
+          ))}
+        </ul>
+      </div>
+      <div className="application-list__box">
+        <div>
+          <h4>Details</h4>
         </div>
+
+        <ul className="application-list__items">
+          {users.map((user) => (
+            <button onClick={() => navigate(`/admin/basvuru/${user.id}`)} key={user.id}>
+              Görüntüle
+            </button>
+          ))}
+        </ul>
       </div>
     </section>
   );

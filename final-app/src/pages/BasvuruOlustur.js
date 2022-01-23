@@ -1,32 +1,30 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import UserContext from "../context/UserContext";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
-
+import validationSchema from "../components/validations/Validation_SignUp";
 export default function BasvuruOlustur() {
   const { addUser } = useContext(UserContext);
   const navigate = useNavigate();
   const randomNumber = (minNumber, maxNumber) => {
-    let rndNum = Math.floor(
-      Math.random() * (maxNumber - minNumber + 1) + minNumber
-    );
+    let rndNum = Math.floor(Math.random() * (maxNumber - minNumber + 1) + minNumber);
     return rndNum;
   };
 
   const d = new Date();
   let dateSave = d.toLocaleDateString();
-
-  const { handleSubmit, handleChange, values } = useFormik({
+  localStorage.setItem("applicationNumber", JSON.stringify("0"));
+  const { handleSubmit, handleChange, handleBlur, values, errors, touched } = useFormik({
     initialValues: {
       name: "",
       surname: "",
       age: "",
       tc: "",
       reasonOfApp: "",
-      aplicationStatus: "",
+      applicationStatus: "",
       applicationNumber: "",
       applicationDate: "",
-      address: "",
+      address: ""
       // attach: "",
     },
     onSubmit: (values) => {
@@ -36,16 +34,21 @@ export default function BasvuruOlustur() {
         age: values.age,
         tc: values.tc,
         reasonOfApp: values.reasonOfApp,
-        aplicationStatus: "Bekliyor",
+        applicationStatus: "Bekliyor",
         applicationNumber: randomNumber(Math.pow(10, 5), Math.pow(10, 8)),
         applicationDate: dateSave,
-        address: values.address,
+        address: values.address
         // attach: values.attach,
       };
       addUser(newUser);
-      navigate("/basvuru-basarılı");
+      navigate("/basvuru-basarili");
+      localStorage.setItem("applicationNumber", JSON.stringify(newUser.applicationNumber));
     },
+    validationSchema
   });
+
+  useEffect(() => {});
+
   return (
     <div>
       <section className="page">
@@ -59,7 +62,9 @@ export default function BasvuruOlustur() {
                 className="signup-form_field"
                 name="name"
                 value={values.name}
+                onBlur={handleBlur}
               />
+              {errors.name && touched.name && <div className="error">{errors.name}</div>}
             </div>
             <div className="signup-form_group">
               <label htmlFor="surname">Surname:</label>
@@ -68,7 +73,9 @@ export default function BasvuruOlustur() {
                 className="signup-form_field"
                 name="surname"
                 value={values.surname}
+                onBlur={handleBlur}
               />
+              {errors.surname && touched.surname && <div className="error">{errors.surname}</div>}
             </div>
           </div>
 
@@ -79,8 +86,9 @@ export default function BasvuruOlustur() {
                 onChange={handleChange}
                 className="signup-form_field"
                 name="address"
-                value={values.adress}
+                value={values.address}
               />
+              {errors.address && touched.address && <div className="error">{errors.address}</div>}
             </div>
           </div>
 
@@ -92,7 +100,9 @@ export default function BasvuruOlustur() {
                 className="signup-form_field"
                 name="age"
                 value={values.age}
+                onBlur={handleBlur}
               />
+              {errors.age && touched.age && <div className="error">{errors.age}</div>}
             </div>
             <div className="signup-form_group">
               <label htmlFor="tc">TC:</label>
@@ -101,7 +111,9 @@ export default function BasvuruOlustur() {
                 className="signup-form_field"
                 name="tc"
                 value={values.tc}
+                onBlur={handleBlur}
               />
+              {errors.tc && touched.tc && <div className="error">{errors.tc}</div>}
             </div>
           </div>
 
@@ -114,7 +126,11 @@ export default function BasvuruOlustur() {
                 name="reasonOfApp"
                 placeholder="Job applications"
                 value={values.reasonOfApp}
+                onBlur={handleBlur}
               />
+              {errors.reasonOfApp && touched.reasonOfApp && (
+                <div className="error">{errors.reasonOfApp}</div>
+              )}
             </div>
 
             {/* <div className="signup-form_group">

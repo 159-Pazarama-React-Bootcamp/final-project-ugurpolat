@@ -1,22 +1,20 @@
 import React from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const navigate = useNavigate();
-  const location = useLocation();
 
   return (
     <footer className="navigation">
       <nav className="navigation_nav">
         <ul className="navigation_list">
-          <li className="navigation_item" onClick={() => navigate("/")}>
+          <li id="search" className="navigation_item " onClick={() => navigate("/")}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="navigation_svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
+              stroke="currentColor">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -24,19 +22,16 @@ export default function Navbar() {
                 d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
               />
             </svg>
+
             <p className="navigation_item_title">Create Ticket</p>
           </li>
-          <li
-            className="navigation_item"
-            onClick={() => navigate("/basvuru-sorgula")}
-          >
+          <li className="navigation_item" onClick={() => navigate("/basvuru-sorgula")}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="navigation_svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
+              stroke="currentColor">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -52,8 +47,7 @@ export default function Navbar() {
               className="navigation_svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
+              stroke="currentColor">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
