@@ -7,12 +7,6 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -22,10 +16,6 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 @keyframes App-logo-spin {
@@ -51,7 +41,7 @@
   max-width: 600px;
   border-radius: 10px;
   border: 1px solid #999;
-  padding: 5px 10px;
+  padding: 0 10px;
   background-color: rgb(255, 255, 255);
 }
 
@@ -70,19 +60,18 @@
 .signup-form_group__button-box {
   flex: 1;
   display: flex;
-  margin-top: 3rem;
 }
 
 label {
   font-family: "Rubik", sans-serif;
   color: #000000;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 400;
 }
 
 .signup-form_field {
-  font-size: 18px;
-  height: 34px;
+  font-size: 1rem;
+  height: 2rem;
   padding-left: 10px;
   padding-right: 10px;
   color: #666;
@@ -109,13 +98,47 @@ label {
   line-height: 1;
   display: block;
 }
+.button-middle {
+  padding: 0.75rem 1rem;
+  text-transform: uppercase;
+  border-radius: 5rem;
+  background-color: rgb(218, 216, 216);
+  color: black;
+  border: none;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  position: relative;
+  margin: 0.1rem auto;
+  font-family: "Rubik", sans-serif;
+  font-weight: bold;
+  line-height: 1;
+  display: block;
+}
+.button-small {
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  border-radius: 5rem;
+  background-color: rgb(218, 216, 216);
+  color: black;
+  border: none;
+  font-size: 0.5rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  position: relative;
+  margin: 0.1rem auto;
+  font-family: "Rubik", sans-serif;
+  font-weight: bold;
+  line-height: 1;
+  display: block;
+}
 
 .navigation {
   position: fixed;
   left: 0;
   bottom: 0;
   right: 0;
-  height: 5rem;
+  height: 4rem;
   z-index: 10;
   display: flex;
   justify-content: center;
@@ -184,6 +207,9 @@ label {
   display: flex;
   flex-direction: column;
 }
+.application-list__item {
+  margin: 0.1rem auto;
+}
 
 .user-page {
   display: flex;
@@ -211,6 +237,10 @@ label {
   text-align: left;
 }
 
+.user-img {
+  width: 100px;
+  height: 100px;
+}
 .error {
   color: red;
 }

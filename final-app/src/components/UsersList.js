@@ -15,7 +15,9 @@ export default function UsersList() {
 
         <ul className="application-list__items">
           {users.map((user) => (
-            <li key={user.id}>{user.name}</li>
+            <li className="application-list__item" key={user.id}>
+              {user.name}
+            </li>
           ))}
         </ul>
       </div>
@@ -26,7 +28,9 @@ export default function UsersList() {
 
         <ul className="application-list__items">
           {users.map((user) => (
-            <li key={user.id}>{user.applicationDate}</li>
+            <li className="application-list__item" key={user.id}>
+              {user.applicationDate}
+            </li>
           ))}
         </ul>
       </div>
@@ -37,8 +41,11 @@ export default function UsersList() {
 
         <ul className="application-list__items">
           {users.map((user) => (
-            <button onClick={() => navigate(`/admin/basvuru/${user.id}`)} key={user.id}>
-              Görüntüle
+            <button
+              className="button-small"
+              onClick={() => navigate(`/admin/basvuru/${user.id}`)}
+              key={user.id}>
+              Show
             </button>
           ))}
         </ul>

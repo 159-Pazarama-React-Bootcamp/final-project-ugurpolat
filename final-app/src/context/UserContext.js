@@ -6,7 +6,7 @@ const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
-
+  const [baseImage, setBaseImage] = useState("");
   useEffect(() => {
     fetchUsers();
   }, []);
@@ -67,14 +67,51 @@ export const UserProvider = ({ children }) => {
     console.log(data);
   };
 
+  // delete user
+  const deleteUser = async (id) => {
+    if (window.confirm("Are you sure you want to delete this todo?")) {
+      await fetch(`https://61e2ed2c3050a10017682308.mockapi.io/api/users/${id}`, {
+        method: "DELETE"
+      });
+      setUsers(users.filter((user) => user.id !== id));
+    }
+  };
+
+  // img to base64
+
+  const uploadImage = async (e) => {
+    const file = e.target.files[0];
+    const base64 = await convertBase64(file);
+    setBaseImage(base64);
+    // console.log(baseImage);
+  };
+
+  const convertBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
+  };
+
   return (
     <UserContext.Provider
       value={{
         users,
+        baseImage,
         addUser,
         updateUser,
         getApplication,
-        getUser
+        deleteUser,
+        getUser,
+        uploadImage
       }}>
       {children}
     </UserContext.Provider>

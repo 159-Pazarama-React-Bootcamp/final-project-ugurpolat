@@ -4,7 +4,8 @@ import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 import validationSchema from "../components/validations/Validation_SignUp";
 export default function BasvuruOlustur() {
-  const { addUser } = useContext(UserContext);
+  const { baseImage, addUser, uploadImage } = useContext(UserContext);
+
   const navigate = useNavigate();
   const randomNumber = (minNumber, maxNumber) => {
     let rndNum = Math.floor(Math.random() * (maxNumber - minNumber + 1) + minNumber);
@@ -24,8 +25,8 @@ export default function BasvuruOlustur() {
       applicationStatus: "",
       applicationNumber: "",
       applicationDate: "",
-      address: ""
-      // attach: "",
+      address: "",
+      attach: ""
     },
     onSubmit: (values) => {
       const newUser = {
@@ -37,8 +38,8 @@ export default function BasvuruOlustur() {
         applicationStatus: "Bekliyor",
         applicationNumber: randomNumber(Math.pow(10, 5), Math.pow(10, 8)),
         applicationDate: dateSave,
-        address: values.address
-        // attach: values.attach,
+        address: values.address,
+        attach: baseImage
       };
       addUser(newUser);
       navigate("/basvuru-basarili");
@@ -87,6 +88,7 @@ export default function BasvuruOlustur() {
                 className="signup-form_field"
                 name="address"
                 value={values.address}
+                onBlur={handleBlur}
               />
               {errors.address && touched.address && <div className="error">{errors.address}</div>}
             </div>
@@ -133,15 +135,18 @@ export default function BasvuruOlustur() {
               )}
             </div>
 
-            {/* <div className="signup-form_group">
+            <div className="signup-form_group">
               <label htmlFor="attach">File:</label>
               <input
+                onChange={(e) => {
+                  uploadImage(e);
+                }}
                 className="signup-form_field"
                 id="attach"
                 name="attach"
                 type="file"
               />
-            </div> */}
+            </div>
           </div>
 
           <div className="signup-form_group">

@@ -23,6 +23,7 @@ export default function Basvuru() {
       <div className="user-page__user">
         <h3>{id} sayılı başvuru</h3>
         <div className="user-page__info">
+          <img className="user-img" src={newUser.attach} alt="user-picture" />
           <h4>Name: {newUser.id} </h4>
           <h4>Surname: {newUser.surname}</h4>
           <h4>Age: {newUser.age}</h4>
