@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import UserContext from "../context/UserContext";
-import validationSchema from "../components/validations/Validation_AdminBasvuru";
+import validationSchema from "../components/validations/Validation_SignUp";
 
 export default function AdminBasvuru() {
   const navigate = useNavigate();
