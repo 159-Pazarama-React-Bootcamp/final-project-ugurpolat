@@ -2,22 +2,30 @@ import React, { useContext } from "react";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 import UserContext from "../context/UserContext";
-
+import validationSchema from "../components/validations/Validation_Search";
 export default function BasvuruSorgula() {
   const navigate = useNavigate();
   const { getApplication } = useContext(UserContext);
 
-  const { handleSubmit, handleChange, values } = useFormik({
+  const { handleSubmit, handleChange, handleBlur, values, errors, touched } = useFormik({
     initialValues: {
       applicationNumber: ""
     },
     onSubmit: (values) => {
-      getApplication(values.applicationNumber).then((user) => {
-        Number(user[0].applicationNumber) === Number(values.applicationNumber)
-          ? navigate(`/basvuru/${user[0].applicationNumber}`)
-          : navigate("/basvuru/404");
+      const inputValue = document.getElementById("search").value;
+      console.log(inputValue);
+      getApplication(inputValue).then((user) => {
+        user.length === 0
+          ? navigate("/basvuru/404")
+          : Number(user[0].applicationNumber) === Number(values.applicationNumber) &&
+            navigate(`/basvuru/${user[0].applicationNumber}`);
+
+        // Number(user[0].applicationNumber) === Number(values.applicationNumber)
+        //   ? navigate(`/basvuru/${user[0].applicationNumber}`)
+        //   : navigate("/basvuru/404");
       });
-    }
+    },
+    validationSchema
   });
 
   return (
@@ -33,7 +41,11 @@ export default function BasvuruSorgula() {
               className="signup-form_field"
               name="applicationNumber"
               value={values.applicationNumber}
+              onBlur={handleBlur}
             />
+            {errors.applicationNumber && touched.applicationNumber && (
+              <div className="error">{errors.applicationNumber}</div>
+            )}
           </div>
         </div>
         <div className="signup-form_group">

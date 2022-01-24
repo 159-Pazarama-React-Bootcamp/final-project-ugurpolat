@@ -55,10 +55,11 @@ export default function Admin() {
             {errors.password && touched.password && <div className="error">{errors.password}</div>}
           </div>
         </div>
-
-        <button className="button" type="submit">
-          Log In
-        </button>
+        <div className="signup-form_group">
+          <button className="button" type="submit">
+            Log In
+          </button>
+        </div>
       </form>
     </section>
   );
