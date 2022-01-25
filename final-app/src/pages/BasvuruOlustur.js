@@ -3,14 +3,17 @@ import UserContext from "../context/UserContext";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 import validationSchema from "../components/validations/Validation_SignUp";
+import { randomNumber } from "../helpers/Helpers";
+
 export default function BasvuruOlustur() {
   const { baseImage, addUser, uploadImage } = useContext(UserContext);
 
   const navigate = useNavigate();
-  const randomNumber = (minNumber, maxNumber) => {
-    let rndNum = Math.floor(Math.random() * (maxNumber - minNumber + 1) + minNumber);
-    return rndNum;
-  };
+
+  // const randomNumber = (minNumber, maxNumber) => {
+  //   let rndNum = Math.floor(Math.random() * (maxNumber - minNumber + 1) + minNumber);
+  //   return rndNum;
+  // };
 
   const d = new Date();
   let dateSave = d.toLocaleDateString();

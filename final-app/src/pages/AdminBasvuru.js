@@ -38,6 +38,7 @@ export default function AdminBasvuru() {
       };
       updateUser(id, updUser);
       navigate("/admin/basvuru-listesi");
+      console.log(id);
     },
     validationSchema
   });
