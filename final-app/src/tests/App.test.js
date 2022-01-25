@@ -9,9 +9,8 @@ test("Render App name", () => {
   expect(ticketApp).toHaveTextContent("Ticket App");
 });
 
-test("Render sign up page", () => {
-  render(<App></App>);
-  const link = screen.getByText("Sign Up");
-
-  screen.debug(link);
-});
+// test("Render sign up page", () => {
+//   render(<App></App>);
+//   const link = screen.getByText("Sign Up");
+//   expect(link).toBeInTheDocument();
+// });

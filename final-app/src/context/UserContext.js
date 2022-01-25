@@ -54,22 +54,27 @@ export const UserProvider = ({ children }) => {
 
   // update user
   const updateUser = async (id, updUser) => {
-    const response = await fetch(`https://61e2ed2c3050a10017682308.mockapi.io/api/users/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(updUser)
-    });
+    if (
+      window.confirm(
+        `Are you sure you want to update ${updUser.name + " " + updUser.surname}  user?`
+      )
+    ) {
+      const response = await fetch(`https://61e2ed2c3050a10017682308.mockapi.io/api/users/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(updUser)
+      });
 
-    const data = await response.json();
-    setUsers(users.map((user) => (user.id === id ? { ...user, ...data } : user)));
-    console.log(data);
+      const data = await response.json();
+      setUsers(users.map((user) => (user.id === id ? { ...user, ...data } : user)));
+    }
   };
 
   // delete user
   const deleteUser = async (id) => {
-    if (window.confirm("Are you sure you want to delete this todo?")) {
+    if (window.confirm("Are you sure you want to delete this user?")) {
       await fetch(`https://61e2ed2c3050a10017682308.mockapi.io/api/users/${id}`, {
         method: "DELETE"
       });
@@ -81,9 +86,9 @@ export const UserProvider = ({ children }) => {
 
   const uploadImage = async (e) => {
     const file = e.target.files[0];
+
     const base64 = await convertBase64(file);
     setBaseImage(base64);
-    // console.log(baseImage);
   };
 
   const convertBase64 = (file) => {

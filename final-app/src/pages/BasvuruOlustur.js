@@ -10,14 +10,11 @@ export default function BasvuruOlustur() {
 
   const navigate = useNavigate();
 
-  // const randomNumber = (minNumber, maxNumber) => {
-  //   let rndNum = Math.floor(Math.random() * (maxNumber - minNumber + 1) + minNumber);
-  //   return rndNum;
-  // };
-
   const d = new Date();
-  let dateSave = d.toLocaleDateString();
+  let registerDate = d.toLocaleDateString();
+
   localStorage.setItem("applicationNumber", JSON.stringify("0"));
+
   const { handleSubmit, handleChange, handleBlur, values, errors, touched } = useFormik({
     initialValues: {
       name: "",
@@ -40,7 +37,7 @@ export default function BasvuruOlustur() {
         reasonOfApp: values.reasonOfApp,
         applicationStatus: "Bekliyor",
         applicationNumber: randomNumber(Math.pow(10, 5), Math.pow(10, 8)),
-        applicationDate: dateSave,
+        applicationDate: registerDate,
         address: values.address,
         attach: baseImage
       };
@@ -148,7 +145,9 @@ export default function BasvuruOlustur() {
                 id="attach"
                 name="attach"
                 type="file"
+                onBlur={handleBlur}
               />
+              {errors.attach && touched.attach && <div className="error">{errors.attach}</div>}
             </div>
           </div>
 
