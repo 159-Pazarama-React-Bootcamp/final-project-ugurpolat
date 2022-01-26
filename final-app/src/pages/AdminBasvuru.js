@@ -11,6 +11,7 @@ export default function AdminBasvuru() {
   const { users, updateUser, deleteUser } = useContext(UserContext);
 
   const user = users.find((u) => u.id == id);
+  console.log(users);
   const { handleSubmit, handleChange, handleBlur, values, errors, touched } = useFormik({
     initialValues: {
       name: `${user.name}`,
@@ -43,6 +44,11 @@ export default function AdminBasvuru() {
     },
     validationSchema
   });
+
+  const handleDelete = () => {
+    navigate("/admin/basvuru-listesi");
+    deleteUser(user.id);
+  };
 
   return (
     <section className="page">
@@ -148,7 +154,7 @@ export default function AdminBasvuru() {
               <input name="aplicationStatus" onChange={handleChange} /> */}
             <label htmlFor="applicationStatus">Choose a status</label>
             <select
-              name="aplicationStatus"
+              name="applicationStatus"
               value={values.applicationStatus}
               onChange={handleChange}>
               <option value="Çözüldü.">Çözüldü</option>
@@ -163,7 +169,7 @@ export default function AdminBasvuru() {
             <button className="button-middle" type="submit">
               Update
             </button>
-            <button onClick={() => deleteUser(id)} className="button-middle">
+            <button onClick={handleDelete} className="button-middle">
               Delete User
             </button>
             <button className="button-middle" onClick={() => navigate("/admin/basvuru-listesi")}>

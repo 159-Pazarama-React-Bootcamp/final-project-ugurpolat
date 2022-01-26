@@ -138,6 +138,7 @@ export default function BasvuruOlustur() {
             <div className="signup-form_group">
               <label htmlFor="attach">File:</label>
               <input
+                placeholder="File size shoul be under 2MB"
                 onChange={(e) => {
                   uploadImage(e);
                 }}
