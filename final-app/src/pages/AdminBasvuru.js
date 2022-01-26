@@ -7,20 +7,22 @@ import validationSchema from "../components/validations/Validation_SignUp";
 export default function AdminBasvuru() {
   const navigate = useNavigate();
   const { id } = useParams();
+
   const { users, updateUser, deleteUser } = useContext(UserContext);
 
+  const user = users.find((u) => u.id == id);
   const { handleSubmit, handleChange, handleBlur, values, errors, touched } = useFormik({
     initialValues: {
-      name: `${users[id - 1].name}`,
-      surname: `${users[id - 1].surname}`,
-      age: `${users[id - 1].age}`,
-      tc: `${users[id - 1].tc}`,
-      reasonOfApp: `${users[id - 1].reasonOfApp}`,
-      applicationStatus: `${users[id - 1].applicationStatus}`,
-      applicationNumber: `${users[id - 1].applicationNumber}`,
-      applicationDate: `${users[id - 1].applicationDate}`,
-      address: `${users[id - 1].address}`,
-      attach: `${users[id - 1].attach}`
+      name: `${user.name}`,
+      surname: `${user.surname}`,
+      age: `${user.age}`,
+      tc: `${user.tc}`,
+      reasonOfApp: `${user.reasonOfApp}`,
+      applicationStatus: `${user.applicationStatus}`,
+      applicationNumber: `${user.applicationNumber}`,
+      applicationDate: `${user.applicationDate}`,
+      address: `${user.address}`,
+      attach: `${user.attach}`
     },
 
     onSubmit: (values) => {
@@ -143,7 +145,7 @@ export default function AdminBasvuru() {
         <div className="signup-form_row">
           <div className="signup-form_group">
             {/* <label htmlFor="aplicationStatus">Application Status:</label>
-                <input name="aplicationStatus" onChange={handleChange} /> */}
+              <input name="aplicationStatus" onChange={handleChange} /> */}
             <label htmlFor="applicationStatus">Choose a status</label>
             <select
               name="aplicationStatus"

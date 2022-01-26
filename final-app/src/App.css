@@ -199,7 +199,6 @@ label {
 
 .application-list__box {
   display: flex;
-  flex-direction: column;
 }
 
 .application-list__items {

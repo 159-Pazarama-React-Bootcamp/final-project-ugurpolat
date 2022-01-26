@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([{}]);
   const [baseImage, setBaseImage] = useState("");
   useEffect(() => {
     fetchUsers();
@@ -118,7 +118,7 @@ export const UserProvider = ({ children }) => {
         getUser,
         uploadImage
       }}>
-      {children}
+      {users.length != 0 ? children : null}
     </UserContext.Provider>
   );
 };
