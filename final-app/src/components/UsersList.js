@@ -10,7 +10,7 @@ export default function UsersList() {
     <section className="admin-page">
       <div className="application-list__box">
         <div>
-          <table>
+          <table className="flex-table">
             <thead>
               <tr>
                 <th>Users</th>
@@ -34,45 +34,8 @@ export default function UsersList() {
               ))}
             </tbody>
           </table>
-          {/* <h4>Users</h4>
-          <ul className="application-list__items">
-            {users.map((user) => (
-              <li className="application-list__item" key={randomNumber(10, 1000)}>
-                {user.name}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <h4>Date</h4>
-          <ul className="application-list__items">
-            {users.map((user) => (
-              <li className="application-list__item" key={randomNumber(10, 1000)}>
-                {user.applicationDate}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <h4>Details</h4>
-          <ul className="application-list__items">
-            {users.map((user) => (
-              <button
-                className="button-small"
-                onClick={() => navigate(`/admin/basvuru/${user.id}`)}
-                key={randomNumber(10, 1000)}>
-                Show
-              </button>
-            ))}
-          </ul>*/}
         </div>
       </div>
-      {/* <div className="application-list__box">
-        <div></div>
-      </div>
-      <div className="application-list__box">
-        <div></div>
-      </div> */}
     </section>
   );
 }

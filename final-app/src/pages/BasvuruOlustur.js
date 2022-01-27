@@ -42,7 +42,8 @@ export default function BasvuruOlustur() {
         attach: baseImage
       };
       addUser(newUser);
-      navigate("/basvuru-basarili");
+      baseImage !== "" && navigate("/basvuru-basarili");
+
       localStorage.setItem("applicationNumber", JSON.stringify(newUser.applicationNumber));
     },
     validationSchema
@@ -136,9 +137,8 @@ export default function BasvuruOlustur() {
             </div>
 
             <div className="signup-form_group">
-              <label htmlFor="attach">File:</label>
+              <label htmlFor="attach">File: )</label>
               <input
-                placeholder="File size shoul be under 2MB"
                 onChange={(e) => {
                   uploadImage(e);
                 }}
@@ -148,7 +148,11 @@ export default function BasvuruOlustur() {
                 type="file"
                 onBlur={handleBlur}
               />
-              {errors.attach && touched.attach && <div className="error">{errors.attach}</div>}
+              {baseImage !== "" ? (
+                <small className="attach-error"></small>
+              ) : (
+                <small className="attach-error">Dosya boyutu 5MB altında olmalıdır</small>
+              )}
             </div>
           </div>
 

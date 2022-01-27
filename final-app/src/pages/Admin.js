@@ -24,7 +24,7 @@ export default function Admin() {
   return (
     <section className="page">
       <form onSubmit={handleSubmit} className="signup-form">
-        <h2>Admin Giriş</h2>
+        <h2>Admin Panel</h2>
         <div className="signup-form_row">
           <div className="signup-form_group">
             <label htmlFor="adminName">Name:</label>

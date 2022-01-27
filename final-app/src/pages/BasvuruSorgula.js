@@ -12,18 +12,15 @@ export default function BasvuruSorgula() {
       applicationNumber: ""
     },
     onSubmit: (values) => {
-      const inputValue = document.getElementById("search").value;
-      console.log(inputValue);
-      getApplication(inputValue).then((user) => {
+      // const inputValue = document.getElementById("search").value;
+
+      getApplication(values.applicationNumber).then((user) => {
         user.length === 0
           ? navigate("/basvuru/404")
-          : Number(user[0].applicationNumber) === Number(values.applicationNumber) &&
+          : user[0].applicationNumber == values.applicationNumber &&
             navigate(`/basvuru/${user[0].applicationNumber}`);
-
-        // Number(user[0].applicationNumber) === Number(values.applicationNumber)
-        //   ? navigate(`/basvuru/${user[0].applicationNumber}`)
-        //   : navigate("/basvuru/404");
       });
+      console.log(values);
     },
     validationSchema
   });
@@ -31,7 +28,7 @@ export default function BasvuruSorgula() {
   return (
     <section className="page">
       <form onSubmit={handleSubmit} className="signup-form">
-        <h2>Başvuru Sorgula</h2>
+        <h2>Application Inquiry</h2>
         <div className="signup-form_row">
           <div className="signup-form_group">
             <label htmlFor="applicationNumber">Application Number</label>

@@ -53,7 +53,7 @@ export default function AdminBasvuru() {
   return (
     <section className="page">
       <form onSubmit={handleSubmit} className="signup-form">
-        <h3>Kullanıcı Bilgisi: {id}</h3>
+        <h3>User Info: {id}</h3>
         <div className="signup-form_row">
           <div className="signup-form_group">
             <label htmlFor="name">Name:</label>

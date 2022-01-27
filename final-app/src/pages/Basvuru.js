@@ -21,7 +21,7 @@ export default function Basvuru() {
   return (
     <section className="user-page">
       <div className="user-page__user">
-        <h3>{id} sayılı başvuru</h3>
+        <h3>{id} Application Number</h3>
         <div className="user-page__info">
           <img className="user-img" src={newUser.attach} alt="user-picture" />
           <h4>Name: {newUser.id} </h4>

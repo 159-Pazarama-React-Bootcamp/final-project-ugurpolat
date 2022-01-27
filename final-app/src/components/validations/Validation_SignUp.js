@@ -25,6 +25,7 @@ const validations = yup.object().shape({
     .number()
     .min(11, "TC number consists of 11 digits.")
     .required("This field cannot be left blank."),
+
   reasonOfApp: yup.string().required("This field cannot be left blank.")
 });
 

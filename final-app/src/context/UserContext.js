@@ -1,7 +1,7 @@
 import React from "react";
 import { createContext, useState, useEffect } from "react";
 import PropTypes from "prop-types";
-
+const FIVE_MB = 5120;
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
@@ -88,7 +88,10 @@ export const UserProvider = ({ children }) => {
     const file = e.target.files[0];
 
     const base64 = await convertBase64(file);
-    setBaseImage(base64);
+
+    const imageSize = base64.length * (3 / 4) - (base64[base64.length - 2] == "=" ? 2 : 1);
+
+    imageSize < FIVE_MB ? setBaseImage(base64) : setBaseImage("");
   };
 
   const convertBase64 = (file) => {
