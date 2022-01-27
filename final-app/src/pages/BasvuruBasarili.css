@@ -27,15 +27,7 @@
   height: 100px;
 }
 @media screen and (max-width: 414px) {
-  /* .signup-form_row {
-    flex-direction: column;
-  } */
-
   .user-page__info {
     padding-left: 3%;
   }
-
-  /* .signup-form {
-    margin: 0 5%;
-  } */
 }
