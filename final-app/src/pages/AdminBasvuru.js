@@ -164,13 +164,15 @@ export default function AdminBasvuru() {
 
         <div className="signup-form_group">
           <div className="signup-form_group__button-box">
-            <button className="button-middle" type="submit">
+            <button className="button button-middle" type="submit">
               Update
             </button>
-            <button onClick={handleDelete} className="button-middle">
+            <button onClick={handleDelete} className="button button-middle">
               Delete User
             </button>
-            <button className="button-middle" onClick={() => navigate("/admin/basvuru-listesi")}>
+            <button
+              className="button button-middle"
+              onClick={() => navigate("/admin/basvuru-listesi")}>
               User List
             </button>
           </div>

@@ -137,7 +137,7 @@ export default function BasvuruOlustur() {
             </div>
 
             <div className="signup-form_group">
-              <label htmlFor="attach">File: )</label>
+              <label htmlFor="attach">File: </label>
               <input
                 onChange={(e) => {
                   uploadImage(e);

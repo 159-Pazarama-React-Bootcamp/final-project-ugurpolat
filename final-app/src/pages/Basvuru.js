@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import UserContext from "../context/UserContext";
-
+import "./BasvuruBasarili.css";
 export default function Basvuru() {
   const { id } = useParams();
   const { users } = useContext(UserContext);
