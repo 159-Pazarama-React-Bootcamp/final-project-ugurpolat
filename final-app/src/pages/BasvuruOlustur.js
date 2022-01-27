@@ -151,7 +151,7 @@ export default function BasvuruOlustur() {
               {baseImage !== "" ? (
                 <small className="attach-error"></small>
               ) : (
-                <small className="attach-error">Dosya boyutu 5MB altında olmalıdır</small>
+                <small className="attach-error">File size should be under 5MB.</small>
               )}
             </div>
           </div>

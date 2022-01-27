@@ -1,3 +1,3 @@
 ## Bitirme projesi
 
-İlgili projenin linki: https://affectionate-sammet-b5b035.netlify.app/
+İlgili projenin linki: https://final-project-ugurpolat.vercel.app/
