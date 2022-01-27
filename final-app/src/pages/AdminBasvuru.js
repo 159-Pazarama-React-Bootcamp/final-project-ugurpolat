@@ -5,13 +5,12 @@ import UserContext from "../context/UserContext";
 import validationSchema from "../components/validations/Validation_SignUp";
 
 export default function AdminBasvuru() {
+  const { users, updateUser, deleteUser } = useContext(UserContext);
   const navigate = useNavigate();
   const { id } = useParams();
 
-  const { users, updateUser, deleteUser } = useContext(UserContext);
-
   const user = users.find((u) => u.id == id);
-  console.log(users);
+
   const { handleSubmit, handleChange, handleBlur, values, errors, touched } = useFormik({
     initialValues: {
       name: `${user.name}`,
@@ -33,7 +32,7 @@ export default function AdminBasvuru() {
         age: values.age,
         tc: values.tc,
         reasonOfApp: values.reasonOfApp,
-        applicationStatus: values.aplicationStatus,
+        applicationStatus: values.applicationStatus,
         applicationNumber: values.applicationNumber,
         applicationDate: values.applicationDate,
         address: values.address,
@@ -49,7 +48,6 @@ export default function AdminBasvuru() {
     navigate("/admin/basvuru-listesi");
     deleteUser(user.id);
   };
-
   return (
     <section className="page">
       <form onSubmit={handleSubmit} className="signup-form">
@@ -151,7 +149,7 @@ export default function AdminBasvuru() {
         <div className="signup-form_row">
           <div className="signup-form_group">
             {/* <label htmlFor="aplicationStatus">Application Status:</label>
-              <input name="aplicationStatus" onChange={handleChange} /> */}
+          <input name="aplicationStatus" onChange={handleChange} /> */}
             <label htmlFor="applicationStatus">Choose a status</label>
             <select
               name="applicationStatus"

@@ -20,7 +20,6 @@ export default function BasvuruSorgula() {
           : user[0].applicationNumber == values.applicationNumber &&
             navigate(`/basvuru/${user[0].applicationNumber}`);
       });
-      console.log(values);
     },
     validationSchema
   });

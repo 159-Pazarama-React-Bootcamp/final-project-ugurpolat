@@ -3,9 +3,11 @@ import { createContext, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 const FIVE_MB = 5120;
 const UserContext = createContext();
+import Spinner from "../helpers/Spinner";
 
 export const UserProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [baseImage, setBaseImage] = useState("");
   useEffect(() => {
     fetchUsers();
@@ -16,8 +18,7 @@ export const UserProvider = ({ children }) => {
     const response = await fetch("https://61e2ed2c3050a10017682308.mockapi.io/api/users");
     const data = await response.json();
     setUsers(data);
-
-    // setIsLoading(false);
+    setIsLoading(false);
   };
 
   //get user applicationNumber
@@ -121,7 +122,7 @@ export const UserProvider = ({ children }) => {
         getUser,
         uploadImage
       }}>
-      {users.length != 0 ? children : null}
+      {!isLoading ? children : <Spinner />}
     </UserContext.Provider>
   );
 };
