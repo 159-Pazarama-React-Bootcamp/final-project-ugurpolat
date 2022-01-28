@@ -147,6 +147,8 @@ export default function BasvuruOlustur() {
                 name="attach"
                 type="file"
                 onBlur={handleBlur}
+                multiple
+                accept="image/*"
               />
               {baseImage !== "" ? (
                 <small className="attach-error"></small>
