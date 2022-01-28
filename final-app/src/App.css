@@ -96,6 +96,10 @@ label {
   font-weight: bold;
 }
 
+.button:hover {
+  background: rgb(173, 172, 172);
+}
+
 .admin-basvuru {
   display: flex;
   justify-content: center;
