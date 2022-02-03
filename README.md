@@ -1,13 +1,15 @@
-
 ## Bitirme projesi
 
 İlgili projenin linki: https://final-project-ugurpolat.vercel.app/
+Admin:kodluyoruz
+Password:bootcamp109
 
 # Ticket-App
 
 Ticket App uygulaması Pazarama ve Patika işbirliğiyle düzenlenen bootcampin bitirme projesidir.
 
 ![](app-1.png)
+
 ## Giriş - Uygulamanın Amacı
 
 Uygulamamız herkese açık bir başvuru formunun son kullanıcı tarafından doldurulması ile başlıyor.
@@ -24,7 +26,6 @@ Kullanıcı adı ve şifre ile girilebilen bir ekrandan da yetkili kullanıcıla
 ## Genel Bilgi
 
 Ticket-App ile işlemlerinizi daha hızlı yapabilirsiniz. Tek tuşla anlık olarak başvuru numaranızı aratın ve başvurunuz hakkındaki en güncel bilgiye hemen erişin...
-
 
 ## İçerik
 
